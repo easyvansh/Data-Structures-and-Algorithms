@@ -15,6 +15,6 @@ int main(){
     for (int i = 0; i < size;i++){
         cout<<a[i]<<endl;
     }
-        cout<<"Element at 2nd Index"<<a.at(2)<<endl;
+    cout<<"Element at 2nd Index"<<a.at(2)<<endl;
 }
 
