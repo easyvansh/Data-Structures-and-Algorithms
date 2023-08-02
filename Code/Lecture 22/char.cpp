@@ -10,22 +10,38 @@ using namespace std;
 //     }
 // }
 
-// bool checkPalindrome(char a[], int n) {
-//     int s = 0;
-//     int e = n-1;
+bool valid(char ch) {
+        if( (ch >= 'a' && ch <= 'z') || (ch >= 'A' && ch <= 'Z') || (ch >= '0' && ch <= '9')) {
+            return 1;
+        }
+        
+        return 0;
+    }
+    
+     char toLowerCase(char ch) {
+    if( (ch >='a' && ch <='z') || (ch >='0' && ch <='9') )
+        return ch;
+    else{
+        char temp = ch - 'A' + 'a';
+        return temp;
+    }
+}
+bool checkPalindrome(char a[], int n) {
+    int s = 0;
+    int e = n-1;
 
-//     while(s<=e) {
-//         if(toLowerCase( a[s] ) != toLowerCase( a[e] ) )
-//         {
-//             return 0;       
-//         }
-//         else{
-//             s++;
-//             e--;
-//         }
-//     }
-//     return 1;
-// }
+    while(s<=e) {
+        if(toLowerCase( a[s] ) != toLowerCase( a[e] ) )
+        {
+            return 0;       
+        }
+        else{
+            s++;
+            e--;
+        }
+    }
+    return 1;
+}
 
 // void reverse(char name[], int n) {
 //     int s=0;
@@ -94,10 +110,27 @@ int main( ) {
     // cout << " CHARACTER is " << toLowerCase('b') << endl;
     // cout << " CHARACTER is " << toLowerCase00('C') << endl;
 
-//    string s;
+   string s;
 //    cin >> s;
 
 //     cout << getMaxOccCharacter(s) << endl;
+ //faltu character hatado
+        string temp = "";
+        
+        for(int j=0; j<s.length(); j++) {   
+            if(valid(s[j])) {
+                temp.push_back(s[j]);
+            }
+        }
+        
+        //lowercase me kardo
+        for(int j=0; j<temp.length(); j++) { 
+            temp[j] = toLowerCase(temp[j]);
+        }
+        
+        //check palindrome
+        return checkPalindrome(temp);
+        
 
-    return 0;
+    // return 0;
 }
